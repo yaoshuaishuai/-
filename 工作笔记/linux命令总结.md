@@ -1,4 +1,48 @@
-在工作中往往会碰到linux操作系统，面对黑黑的命令行窗口经常不知所措，所以写一篇这样的文档用于记录平时在工作中学到的Linux 常用命令，并加以说明解释（后续不断补充）
+​		在工作中往往会碰到linux操作系统，面对黑黑的命令行窗口经常不知所措，所以写一篇这样的文档用于记录平时在工作中学到的Linux 常用命令，并加以说明解释（后续不断补充）
+
+
+
+##### 主机名和域名修改
+
+```
+1.修改计算机名称
+1.打开配置文件 vi  /etc/sysconfig/network
+2.设置HOSTNAME=计算机名称
+3.reboot 
+
+2.修改域名解析
+查看当前主机名 hostname
+1.修改hosts文件 vi /etc/hosts 在末尾加上 ip地址或者127.0.0.1 域名
+2.退出保存即可，测试 ping 域名
+```
+
+
+
+##### 修改ip地址
+
+```
+修改eth0文件
+1.编辑网卡文件 vi /etc/sysconfig/network-script/ifcfg-eth0
+2.修改ip为静态 BOOTPROTO="static"
+3.添加ip IPADDR=192.168.100.251
+4.需要修改mak地址的可以 注释掉 HWADDR 添加 MACADDR="00:0C:29:B3:40:11"
+5.重启网卡服务 service network restart
+```
+
+
+
+##### 防火墙操作
+
+```
+关闭防火墙（以centos6.5为例）
+查看防火墙状态 ：service iptables status
+
+关闭（打开）防火墙 
+永久生效：chkconfig iptables off（on）
+重启失效：service iptables stop(start)
+```
+
+
 
 ##### 赋权： 授权命令为 chmod [who] [+ |-| =] [mode] 文件名 
 
@@ -80,34 +124,7 @@ pwd -L|P
 
 
 
-##### 防火墙操作
 
-关闭防火墙（以centos6.5为例）
-查看防火墙状态 service iptables status
 
-关闭（打开）防火墙 
-永久生效
-chkconfig iptables off（on）
-重启时效
-service iptables stop(start)
 
-##### 修改ip地址
 
->     修改eth0文件
->     1.编辑网卡文件 vi /etc/sysconfig/network-script/ifcfg-eth0
->     2.修改ip为静态 BOOTPROTO="static"
->     3.添加ip IPADDR=192.168.100.251
->     4.需要修改mak地址的可以 注释掉 HWADDR 添加 MACADDR="00:0C:29:B3:40:11"
->     5.重启网卡服务 service network restart
-
-##### 主机名和域名修改
-
->     1.修改计算机名称
->     1.打开配置文件 vi  /etc/sysconfig/network
->     2.设置HOSTNAME=计算机名称
->     3.reboot 
->  
->     2.修改域名解析
->     查看当前主机名 hostname
->     1.修改hosts文件 vi /etc/hosts 在末尾加上 ip地址或者127.0.0.1 域名
->     2.退出保存即可，测试 ping 域名
