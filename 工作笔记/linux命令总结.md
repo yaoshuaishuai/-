@@ -1,8 +1,8 @@
-​		在工作中往往会碰到linux操作系统，面对黑黑的命令行窗口经常不知所措，所以写一篇这样的文档用于记录平时在工作中学到的Linux 常用命令，并加以说明解释（后续不断补充）
+		在工作中往往会碰到linux操作系统，面对黑黑的命令行窗口经常不知所措，所以写一篇这样的文档用于记录平时在工作中学到的Linux 常用命令，并加以说明解释（后续不断补充）
 
 #### 查看版本
 
-```
+```java
 uname -a
 
 Linux localhost.localdomain 3.10.0-327.el7.x86_64 #1 SMP Thu Nov 19 22:10:57 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
@@ -14,26 +14,21 @@ Linux localhost.localdomain 3.10.0-327.el7.x86_64 #1 SMP Thu Nov 19 22:10:57 UTC
 
 ​	**1.修改计算机名称**
 
-```
-    ① vi  /etc/sysconfig/network
-
-​    ②添加：HOSTNAME=Centons7.yaoshuaishuai.com
-
-​	③reboot 
+```java
+vi /etc/sysconfig/network #打开编辑
+HOSTNAME=Centons7.yaoshuaishuai.com #设置hostname
+reboot #重启
 ```
 
 ​	**2.修改域名解析**
 
 ​		查看当前主机名 hostname
 
-```
-	①修改hosts文件 vi /etc/hosts 
-
-​	②在末尾加上 ip地址或者127.0.0.1 域名		
-
-​	③退出保存即可，测试 ping 域名
-
-​	④reboot
+```java
+vi /etc/hosts #编辑修改hosts文件 
+127.0.0.1 域名 #在末尾加上域名映射		
+ping 域名 #测试是否成功
+reboot #重启
 ```
 
 
