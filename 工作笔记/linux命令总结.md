@@ -11,7 +11,9 @@
 ​	**1.修改计算机名称**
 
 > vi /etc/sysconfig/network #打开编辑
+>
 > HOSTNAME=Centons7.yaoshuaishuai.com #设置hostname
+>
 > reboot #重启
 
 ​	**2.修改域名解析**
@@ -19,8 +21,12 @@
 ​		查看当前主机名 hostname
 
 > vi /etc/hosts #编辑修改hosts文件 
-> 127.0.0.1 域名 #在末尾加上域名映射		
+>
+> 127.0.0.1 域名 #在末尾加上域名映射
+>
+>
 > ping 域名 #测试是否成功
+>
 > reboot #重启
 
 ### 修改ip地址
@@ -28,16 +34,27 @@
 ​	修改lo 文件
 
 > DEVICE=lo #网卡名称
+>
 > IPADDR=172.16.192.34 #IP地址
+>
 > GATEWAY=172.16.192.1 #网关
+>
 > NETMASK=255.255.244.0 #子网掩码
+>
 > BROADCAST=172.16.192.255 #广播
+>
 > NETWORK=yes #网络是否被配置
+>
 > ONBOOT=yes #启动时网卡是否激活
+>
 > ONBOOT=yes #是否随着开机自启动 
+>
 > BOOTPROTO=static  #static表示固定ip地址，dhcp表示随机获取ip  
+>
 > 重启网络设置：service network restart
+>
 > systemctl restart network
+>
 > systemctl status network.service
 
 ### 防火墙操作
@@ -45,16 +62,23 @@
 ​	**1.关闭防火墙（以centos6.5为例）**
 
 > 查看防火墙状态 ：service iptables status
+>
 > 关闭（打开）防火墙 
+>
 >   永久生效：chkconfig iptables off（on）
+>
 >   重启失效：service iptables stop(start)
 
 ​	**2.关闭防火墙（以centos7为例）**
 
 > 查看防火墙状态：firewall-cmd --state
+>
 > 关闭（打开）防火墙
+>
 >  关闭防火墙：systemctl stop firewalld.service
+>
 >  禁止防火墙开机自启：systemctl disable firewalld.service
+>
 > 防火墙重加载：firewall-cmd --reload
 
 ​	**3.开闭端口操作**
@@ -65,13 +89,13 @@
 >
 > 查看系统中使用tcp协议的端口号信息：netstat -ntpl
 >
-> 添加开放端口号：firewall-cmd --zone=public --add-port=80/tcp --permanent
+> ​	添加开放端口号：firewall-cmd --zone=public --add-port=80/tcp --permanent
 >
 > 命令含义：
 >
-> --add-port=80/tcp #添加端口，格式为：端口/通讯协议
+> ​	--add-port=80/tcp #添加端口，格式为：端口/通讯协议
 >
-> --permanent #永久生效，没有此参数重启后失效
+> ​	--permanent #永久生效，没有此参数重启后失效
 
 ### 赋权： 授权命令为 chmod [who] [+ |-| =] [mode] 文件名 
 
