@@ -1,16 +1,14 @@
 		在工作中往往会碰到linux操作系统，面对黑黑的命令行窗口经常不知所措，所以写一篇这样的文档用于记录平时在工作中学到的Linux 常用命令，并加以说明解释（后续不断补充）
 
-#### 查看版本
+### 查看版本
 
-```java
+```
 uname -a
 
 Linux localhost.localdomain 3.10.0-327.el7.x86_64 #1 SMP Thu Nov 19 22:10:57 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-
-
-#### 主机名和域名修改
+### 主机名和域名修改
 
 ​	**1.修改计算机名称**
 
@@ -31,66 +29,44 @@ ping 域名 #测试是否成功
 reboot #重启
 ```
 
-
-
-#### 修改ip地址
+### 修改ip地址
 
 ​	修改lo 文件
 
 ```
-	DEVICE=lo #网卡名称
-
-​	IPADDR=172.16.192.34 #IP地址
-
-​	GATEWAY=172.16.192.1 #网关
-
-​	NETMASK=255.255.244.0 #子网掩码
-
-​	BROADCAST=172.16.192.255 #广播
-
-​	NETWORK=yes #网络是否被配置
-
-​	ONBOOT=yes #启动时网卡是否激活
-
-​	ONBOOT=yes #是否随着开机自启动 
-
-​	BOOTPROTO=static  #static表示固定ip地址，dhcp表示随机获取ip  
-
-​	重启网络设置：service network restart
-
-​				systemctl restart network
-
-​				systemctl status network.service
+DEVICE=lo #网卡名称
+IPADDR=172.16.192.34 #IP地址
+GATEWAY=172.16.192.1 #网关
+NETMASK=255.255.244.0 #子网掩码
+BROADCAST=172.16.192.255 #广播
+NETWORK=yes #网络是否被配置
+ONBOOT=yes #启动时网卡是否激活
+ONBOOT=yes #是否随着开机自启动 
+BOOTPROTO=static  #static表示固定ip地址，dhcp表示随机获取ip  
+重启网络设置：service network restart
+systemctl restart network
+systemctl status network.service
 ```
 
-
-
-#### 防火墙操作
+### 防火墙操作
 
 ​	**1.关闭防火墙（以centos6.5为例）**
 
 ```
-		查看防火墙状态 ：service iptables status
-
-​		关闭（打开）防火墙 
-
- 			永久生效：chkconfig iptables off（on）
-
- 			重启失效：service iptables stop(start)
+查看防火墙状态 ：service iptables status
+关闭（打开）防火墙 
+  永久生效：chkconfig iptables off（on）
+  重启失效：service iptables stop(start)
 ```
 
 ​	**2.关闭防火墙（以centos7为例）**
 
 ```
-		查看防火墙状态：firewall-cmd --state
-
-​		关闭（打开）防火墙
-
-​			关闭防火墙：systemctl stop firewalld.service
-
-​			禁止防火墙开机自启：systemctl disable firewalld.service
-
-​		防火墙重加载：firewall-cmd --reload
+查看防火墙状态：firewall-cmd --state
+关闭（打开）防火墙
+  关闭防火墙：systemctl stop firewalld.service
+  禁止防火墙开机自启：systemctl disable firewalld.service
+防火墙重加载：firewall-cmd --reload
 ```
 
 ​	**3.开闭端口操作**
