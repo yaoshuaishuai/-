@@ -4,7 +4,7 @@
 
 ### gitflow分支模型
 
-![](\gitflow模型.png)
+![](https://github.com/yaoshuaishuai/gerenchengzhang/blob/master/%E5%9B%BE%E7%89%87/gitflow%E6%A8%A1%E5%9E%8B.png?raw=true)
 
 ### 分支介绍及使用场景
 
