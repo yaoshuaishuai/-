@@ -4,7 +4,7 @@
 
 ### gitflow分支模型
 
-![](./gitflow.png)
+![加载图片失败！](gitflow.png)
 
 ### 分支介绍及使用场景
 
