@@ -4,7 +4,7 @@
 
 ### gitflow分支模型
 
-![](/gitflow模型.png)
+![](/gitflow.png)
 
 ### 分支介绍及使用场景
 
