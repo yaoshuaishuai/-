@@ -110,7 +110,7 @@ systemctl status network.service
 
 ​	添加开放端口号：firewall-cmd --zone=public --add-port=80/tcp --permanent
 
-命令含义：
+	命令含义：
 
 ​	--add-port=80/tcp #添加端口，格式为：端口/通讯协议
 
@@ -198,9 +198,9 @@ pwd -L|P
 
 ​    -u:若目标文件比源文件旧，更新目标文件 
 
-例子：如将/test1目录下的file1复制到/test3目录，并将文件名改为file2 
+	例子：如将/test1目录下的file1复制到/test3目录，并将文件名改为file2 
 
-​      cp /test1/file1 /test3/file2   
+​     cp /test1/file1 /test3/file2   
 ```
 
 ​	**2.文件移动 mv [-fiv] source destination**
@@ -214,7 +214,7 @@ pwd -L|P
 
 ​	-u:若目标文件已经存在，且源文件比较新，才会更新
 
-例子：如将/test1目录下的file1移动到/test3 目录，并将文件名改为file2
+	例子：如将/test1目录下的file1移动到/test3 目录，并将文件名改为file2
 
 ​	mv /test1/file1 /test3/file2
 ```
@@ -229,7 +229,7 @@ pwd -L|P
 
 ​	-r:递归删除，常用在目录的删除
 
-例子：如删除/test目录下的file1文件
+	例子：如删除/test目录下的file1文件
 
 ​	rm -i /test/file1
 ```
