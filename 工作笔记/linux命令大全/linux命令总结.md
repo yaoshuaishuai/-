@@ -8,6 +8,46 @@ uname -a
 Linux localhost.localdomain 3.10.0-327.el7.x86_64 #1 SMP Thu Nov 19 22:10:57 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
+查看CUP
+
+```
+[root@localhost ~]# lscpu
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                8
+On-line CPU(s) list:   0-7
+Thread(s) per core:    1
+Core(s) per socket:    4
+Socket(s):             2
+NUMA node(s):          1
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 62
+Stepping:              4
+CPU MHz:               2593.750
+BogoMIPS:              5187.50
+Hypervisor vendor:     VMware
+Virtualization type:   full
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              20480K
+NUMA node0 CPU(s):     0-7
+```
+
+查看内存
+
+```
+cat /proc/meminfo |grep MemTotal
+```
+
+查看硬盘
+
+```
+fdisk -l |grep Disk
+```
+
 
 
 ### 主机名和域名修改
@@ -36,6 +76,8 @@ ping 域名 #测试是否成功
 
 reboot #重启
 ```
+
+
 
 
 
